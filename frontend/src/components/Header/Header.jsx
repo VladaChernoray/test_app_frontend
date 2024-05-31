@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button/Button";
 import { UseTg } from "../../hooks/UseTg";
-import "../Header/Header.css";
+//import "../Header.css";
 
 const Header = () => {
 
