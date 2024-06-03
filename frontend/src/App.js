@@ -7,7 +7,7 @@ import ProductList from './components/ProductList/ProductList';
 import Form from './components/Form/Form';
 
 function App() {
-  const {onToggleButton, tg} = UseTg();
+  const {tg} = UseTg();
   
     useEffect(() => {
       tg.ready();
