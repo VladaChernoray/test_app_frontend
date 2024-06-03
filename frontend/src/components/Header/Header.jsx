@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../Button/Button";
 import { UseTg } from "../../hooks/UseTg";
+import "../Header/Header.css"
 
 const Header = () => {
   const { user, onClose } = UseTg();
@@ -13,9 +14,6 @@ const Header = () => {
       <span className={'username'}>
         {user ? user.username + " lol" : "here should be username"}
       </span>
-      <span className={"id"}>
-        {user ? user.id + " kek" : "here should be id"}
-        </span>
     </div>
   );
 }
