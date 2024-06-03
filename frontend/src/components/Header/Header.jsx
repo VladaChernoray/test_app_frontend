@@ -10,7 +10,7 @@ const {user, onClose} = UseTg();
     return(
         <div className={"header"}>
             <Button onClick={onClose}>Close</Button>
-            <span className={'username'}>{user?.username}</span>
+            <span className={'username'}>{user?.username + "lol"}</span>
         </div>
     )
 }
