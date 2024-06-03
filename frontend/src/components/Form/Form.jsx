@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "../Form/Form.css";
 import { UseTg } from "../../hooks/UseTg";
 
@@ -37,6 +37,22 @@ const Form = () => {
     }
   }, [country, street, tg]);
 
+
+  const onSendData = useCallback(() => {
+    const data = {
+      country,
+      street, 
+      subject,
+    }
+    tg.sendData(JSON.stringify(data));
+  }, [])
+
+  useEffect(() => {
+    tg.WebApp.onEvent('mainButtonClicked', onSendData)
+    return () => {
+      tg.WebApp.offEvent('mainButtonClicked', onSendData)
+    }
+  }, [country, street, subject])
   return (
     <div className={"form"}>
       <h3>Input your data:</h3>
