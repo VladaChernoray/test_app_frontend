@@ -9,8 +9,9 @@ const Header = () => {
     <div className={"header"}>
       <Button onClick={onClose}>Close</Button>
       <span className={'username'}>
-        {user ? user.username + " lol" : "Loading..."}
+        {user ? user.username + " lol" : "here shpold be username"}
       </span>
+      <span className={"id"}>{user ? user.id + "kek" : "here should be id"}</span>
     </div>
   );
 }

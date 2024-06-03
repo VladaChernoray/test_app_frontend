@@ -1,22 +1,19 @@
-import { useState, useEffect } from 'react';
-
-const tg = window.Telegram?.WebApp;
+const tg = window.Telegram.WebApp;
 
 export function UseTg() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    if (tg) {
-      tg.ready();
-      setUser(tg.initDataUnsafe ? tg.initDataUnsafe.user : null);
-    } else {
-      console.error("Telegram WebApp not initialized");
-    }
-  }, []);
+  if (!tg) {
+    console.error("Telegram WebApp not initialized");
+    return {
+      onClose: () => {},
+      onToggleButton: () => {},
+      tg: null,
+      user: null,
+    };
+  }
 
   const onClose = () => {
     tg.close();
-  };
+  }
 
   const onToggleButton = () => {
     if (tg.MainButton.isVisible) {
@@ -24,12 +21,12 @@ export function UseTg() {
     } else {
       tg.MainButton.show();
     }
-  };
+  }
 
   return {
     onClose,
     onToggleButton,
     tg,
-    user,
+    user: tg.initDataUnsafe.user,
   };
 }
