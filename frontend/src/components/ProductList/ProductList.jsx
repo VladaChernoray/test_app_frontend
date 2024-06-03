@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useCallback} from "react";
 import "../ProductList/ProductList.css"
 import ProductItem from "../ProductItem/ProductItem";
 import products from "../../data/data";
@@ -13,7 +13,30 @@ const getTotalPrice = (products) => {
 
 const ProductList = () => {
 
-    const {tg} = UseTg();
+    const {tg, queryID} = UseTg();
+
+    const onSendData = useCallback(() => {
+        const data = {
+          products: addedItems,
+          totalPrice: getTotalPrice(products),
+        };
+        fetch('http://localhost:8000', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+      }, []);
+    
+      useEffect(() => {
+        if (tg) {
+          tg.onEvent('mainButtonClicked', onSendData);
+          return () => {
+            tg.offEvent('mainButtonClicked', onSendData);
+          };
+        }
+      }, [onSendData, tg]);
 
     const [addedItems, seAddedItems] = useState([]);
     const onAdd = (product) => {

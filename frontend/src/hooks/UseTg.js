@@ -24,6 +24,7 @@ export function UseTg() {
   };
 
   const user = tg.initDataUnsafe ? tg.initDataUnsafe.user : null;
+  const queryID = tg.initDataUnsafe?.query_id;
   
   console.log('Telegram initDataUnsafe:', tg.initDataUnsafe);
   console.log('User:', user);
@@ -33,5 +34,6 @@ export function UseTg() {
     onToggleButton,
     tg,
     user,
+    queryID,
   };
 }
