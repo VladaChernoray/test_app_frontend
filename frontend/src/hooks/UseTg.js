@@ -1,6 +1,16 @@
 const tg = window.Telegram.WebApp;
 
 export function UseTg() {
+  if (!tg) {
+    console.error("Telegram WebApp not initialized");
+    return {
+      onClose: () => {},
+      onToggleButton: () => {},
+      tg: null,
+      user: null,
+    };
+  }
+
   const onClose = () => {
     tg.close();
   }
@@ -18,5 +28,5 @@ export function UseTg() {
     onToggleButton,
     tg,
     user: tg.initDataUnsafe ? tg.initDataUnsafe.user : null,
-  }
+  };
 }
