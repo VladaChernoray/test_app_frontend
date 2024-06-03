@@ -6,6 +6,8 @@ import { UseTg } from "../../hooks/UseTg";
 const Header = () => {
   const { user, onClose } = UseTg();
 
+  console.log("Rendering Header with user:", user);
+
   return (
     <div className={"header"}>
       <Button onClick={onClose}>Close</Button>
