@@ -30,29 +30,35 @@ const Form = () => {
   }, [tg]);
 
   useEffect(() => {
-    if (!country || !street) {
-      tg.MainButton.hide();
-    } else {
-      tg.MainButton.show();
+    if (tg) {
+      if (!country || !street) {
+        tg.MainButton.hide();
+      } else {
+        tg.MainButton.show();
+      }
     }
   }, [country, street, tg]);
-
 
   const onSendData = useCallback(() => {
     const data = {
       country,
       street, 
       subject,
+    };
+    if (tg) {
+      tg.sendData(JSON.stringify(data));
     }
-    tg.sendData(JSON.stringify(data));
-  }, [country, street, subject])
+  }, [country, street, subject, tg]);
 
   useEffect(() => {
-    tg.WebApp.onEvent('mainButtonClicked', onSendData)
-    return () => {
-      tg.WebApp.offEvent('mainButtonClicked', onSendData)
+    if (tg) {
+      tg.onEvent('mainButtonClicked', onSendData);
+      return () => {
+        tg.offEvent('mainButtonClicked', onSendData);
+      };
     }
-  }, [onSendData])
+  }, [onSendData, tg]);
+
   return (
     <div className={"form"}>
       <h3>Input your data:</h3>
@@ -75,7 +81,7 @@ const Form = () => {
         <option value={"legal"}>Legal entity</option>
       </select>
     </div>
-  )
+  );
 }
 
 export default Form;
