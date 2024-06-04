@@ -50,7 +50,7 @@
 .title {
     color: var(--tg-theme-text-color);
     padding: 4px 0;
-    align-items: center;
+    text-align: center;
 }
 .description, .price {
     font-size: 14px;
