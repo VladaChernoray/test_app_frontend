@@ -62,3 +62,7 @@
     background-color: orange;
     color: var(--tg-theme-button-text-color);
 }
+.add-button:hover {
+    background-color: white;
+    color: black;
+}
