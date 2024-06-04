@@ -10,8 +10,7 @@ const ProductItem = ({product, className, onAdd}) => {
         <div className={"product"}>
             <img className={"img"} src ={product.img}/>
             <div className={"title"}>{product.title}</div>
-            <div className={"description"}>{product.description}</div>
-            <Button className="add-button" onClick={onAddHandler}>Add for {product.price}</Button>
+            <Button className={"add-button"} onClick={onAddHandler}>Add for <b>${product.price}</b></Button>
         </div>
     )
 }

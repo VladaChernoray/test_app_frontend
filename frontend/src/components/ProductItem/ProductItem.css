@@ -1,8 +1,7 @@
 .product {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--tg-theme-button-color);
-    width: 150px;
+    width: 25%;
     justify-content: center;
     align-items: center;
     margin: 10px;
@@ -11,22 +10,24 @@
 }
 .img {
     width: 100%;
-    height: 120px;
+    height: 100px;
     margin: 0 auto;
     border-radius: 15px;
 }
 .title {
     color: var(--tg-theme-text-color);
-    font-size: 20px;
-    padding: 10px;
+    font-size: 18px;
+    padding: 4px 0;
 }
 .description, .price {
-    font-size: 16px;
+    font-size: 14px;
     color: var(--tg-theme-hint-color);
 }
 
-.add-btn {
-    width: 200px;
-    border-radius: 15px;
-    padding: 0;
+.add-button {
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: orange;
+    font-size: 16px;
+    color: var(--tg-theme-button-text-color);
 }
