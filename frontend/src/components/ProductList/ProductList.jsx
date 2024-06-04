@@ -42,7 +42,8 @@ const ProductList = () => {
       totalPrice: getTotalPrice(addedItems),
       queryID,
     };
-    fetch('http://localhost:8000/web-data', {
+    console.log('Sending data:', data); 
+    fetch('test-app-backend-2nvfx1bz5-vladachernorays-projects.vercel.app', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
