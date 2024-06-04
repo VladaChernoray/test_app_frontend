@@ -11,10 +11,7 @@ const ProductItem = ({product, className, onAdd}) => {
             <img className={"img"} src ={product.img}/>
             <div className={"title"}>{product.title}</div>
             <div className={"description"}>{product.description}</div>
-            <div className={"price"}>
-                <span>Price: {product.price}</span>
-            </div>
-            <Button className="add-button" onClick={onAddHandler}>ADD TO CARD</Button>
+            <Button className="add-button" onClick={onAddHandler}>Add for {product.price}</Button>
         </div>
     )
 }
