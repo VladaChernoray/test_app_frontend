@@ -2,10 +2,22 @@
     width: 100%;
     height: 50px;
     display: flex;
-    align-items: center;
-    padding: 20px 0;
+    padding: 40px;
+    justify-content: space-between;
+    align-items: center; 
 }
 
 .username {
-    margin-left: auto;
+    background-color: var(--tg-theme-button-color);
+}
+
+.cls_btn, .username  {
+    border-radius: 10px;
+    font-size: 16px;
+    color: var(--tg-theme-button-text-color);
+    padding: 15px 50px;
+}
+
+.cls_btn {
+    background-color: orange;
 }
