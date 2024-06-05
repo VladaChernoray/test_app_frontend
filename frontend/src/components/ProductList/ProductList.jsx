@@ -43,7 +43,7 @@ const ProductList = () => {
       queryID,
     };
     console.log('Sending data:', data);
-    fetch('https://test-app-backend-two.vercel.app', {
+    fetch('https://test-app-backend-murex.vercel.app/web-data', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
